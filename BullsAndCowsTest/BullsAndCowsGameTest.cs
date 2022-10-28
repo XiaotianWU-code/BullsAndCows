@@ -43,5 +43,21 @@ namespace BullsAndCowsTest
             // then
             Assert.Equal("2A0B", guessResult);
         }
+
+        [Theory]
+        [InlineData("1 2 3 4", "1 3 7 6")]
+        [InlineData("1 2 3 4", "0 2 8 1")]
+        [InlineData("1 2 3 4", "2 7 5 4")]
+        public void Should_return_1A1B_when_guess_given_the_guess_one_digits_as_same_as_the_secret(string serect, string guess)
+        {
+            // given
+            var mockSecretGeneratro = new Mock<SecretGenerator>();
+            mockSecretGeneratro.Setup(x => x.GenerateSecret()).Returns(serect);
+            var game = new BullsAndCowsGame(mockSecretGeneratro.Object);
+            // when
+            var guessResult = game.Guess(guess);
+            // then
+            Assert.Equal("1A1B", guessResult);
+        }
     }
 }

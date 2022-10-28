@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BullsAndCows
 {
@@ -28,7 +29,11 @@ namespace BullsAndCows
                 }
             }
 
-            return $"{cntA}A0B";
+            var intersect = guessList.Intersect(secretList).ToList().Count;
+
+            var cntB = intersect - cntA;
+
+            return $"{cntA}A{cntB}B";
         }
     }
 }
