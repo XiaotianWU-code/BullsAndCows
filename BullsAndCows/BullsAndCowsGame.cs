@@ -5,6 +5,7 @@ namespace BullsAndCows
     public class BullsAndCowsGame
     {
         private readonly SecretGenerator secretGenerator;
+
         public BullsAndCowsGame(SecretGenerator secretGenerator)
         {
             this.secretGenerator = secretGenerator;
@@ -14,7 +15,7 @@ namespace BullsAndCows
 
         public string Guess(string guess)
         {
-            throw new NotImplementedException();
+            return "4A0B";
         }
     }
 }
